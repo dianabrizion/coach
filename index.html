@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Méta-informations du document -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre de la page -->
+    <title>Diana, Coach Sportif Personnalisé</title>
+    <!-- Styles CSS intégrés -->
+    <style>
+        /* Style général du corps de la page */
+        body {
+        margin: 0;
+        padding: 0;
+        background-image: url('sitediana.jpg');
+        background-size: 100% auto; /* Ajustement vertical à la taille du téléphone */
+        background-position: right top;
+        font-family: Arial, sans-serif;
+        background-color: rgba(255, 255, 255, 0.5);
+        color: #fff;
+        min-height: 100vh; /* Assure que le fond d'écran couvre au moins la hauteur de l'écran */
+        background-attachment: fixed; /* Empêche le défilement de l'image d'arrière-plan */
+        }
+
+        /* Ajout de styles spécifiques pour les petits écrans */
+        @media (max-width: 600px) {
+            body {
+                background-size: auto; /* Ajuste la taille de l'image pour qu'elle soit plus adaptée aux petits écrans */
+            }
+        }
+
+        /* Style de l'en-tête */
+        header {
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+        }
+
+        /* Style du titre principal */
+        h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        /* Style de la barre de navigation */
+         nav {
+             background-color: #777;
+             padding: 0.5em;
+             text-align: center; /* Centrer les liens sur les petits écrans */
+         }
+
+         /* Style des liens de navigation */
+         nav a {
+             color: #fff;
+             text-decoration: none;
+             padding: 0.5em 1em;
+             cursor: pointer;
+             display: block; /* Afficher chaque lien sur une nouvelle ligne sur les petits écrans */
+         }
+
+        /* Style des pages */
+        .page {
+            padding: 1em;
+            display: none;
+        }
+
+        /* Style du pied de page */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            padding: 0.5em;
+        }
+
+        /* Style du formulaire */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        /* Style des labels du formulaire */
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Style des champs de saisie du formulaire */
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        /* Style du bouton de soumission du formulaire */
+        input[type="submit"] {
+            background-color: #555;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Ajout d'espace en bas de l'onglet "Contact" */
+        #contact {
+            margin-bottom: 60px; /* Vous pouvez ajuster la valeur selon vos besoins */
+        }
+
+        /* Style des drapeaux à côté du titre */
+        h1::before,
+        h1::after {
+            content: "";
+            width: 80px;
+            height: 48px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        /* Masquer les drapeaux sur les petits écrans */
+        @media (max-width: 600px) {
+          h1::before,
+          h1::after {
+            display: none;
+          }
+        }
+
+        h1::before {
+            background-image: url('france-flag.jpg');
+            left: 10px;
+        }
+
+        h1::after {
+            background-image: url('colombia-flag.jpg');
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête de la page -->
+    <header>
+        <!-- Titre principal de la page -->
+        <h1>Diana, Coach Sportif Personnalisé</h1>
+    </header>
+
+    <!-- Barre de navigation -->
+    <nav>
+        <a onclick="showPage('accueil')">Accueil</a>
+        <a onclick="showPage('apropos')">À Propos de Moi</a>
+        <a onclick="showPage('programmes')">Programmes</a>
+        <a onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <!-- Pages de contenu -->
+    <div id="accueil" class="page">
+        <h2>Bienvenue sur mon site de coaching sportif!</h2>
+        <p>Découvrez des programmes personnalisés pour atteindre vos objectifs de remise en forme.</p>
+    </div>
+
+    <div id="apropos" class="page">
+        <h2>À Propos de Moi</h2>
+        <p>Comme les petits drapeaux le laissent penser, je suis une colombienne vivant en France, à Evreux plus exactement.
+          <br>Et pas seulement : je suis surtout vétérinaire ! Malheureusement, je ne peux pas exercer ma profession en France pour le moment donc je me suis tourné vers ma deuxième passion : le Fitness et la Nutrition !
+          <br>Passionnée par la santé et la remise en forme, je suis là pour vous aider à atteindre vos objectifs. Avec une approche personnalisée, nous trouverons ensemble le programme qui convient le mieux à vos besoins.</p>
+    </div>
+
+    <div id="programmes" class="page">
+        <h2>Mes Programmes</h2>
+        <h3>Plans Alimentaires</h3>
+        <p>Découvrez mes plans alimentaires personnalisés pour vous aider à atteindre vos objectifs de remise en forme. Une alimentation équilibrée est essentielle pour des résultats durables.</p>
+
+        <h3>Séances de Sport Personnalisées</h3>
+        <p>Mes séances de sport personnalisées sont conçues pour répondre à vos besoins spécifiques. Que vous soyez débutant ou avancé, j'ai le programme parfait pour vous.</p>
+    </div>
+
+    <div id="contact" class="page">
+        <h2>Contactez-moi</h2>
+        <p>Remplissez le formulaire ci-dessous pour me contacter.</p>
+
+        <!-- Formulaire de contact -->
+        <form onsubmit="submitForm(event)">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="telephone">Téléphone :</label>
+            <input type="tel" id="telephone" name="telephone" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <!-- Bouton de soumission du formulaire -->
+            <input type="submit" value="Envoyer">
+        </form>
+
+        <!-- Coordonnées de contact -->
+        <div>
+            <h3>Coordonnées</h3>
+            <p>Diana Brizion</p>
+            <p>Coach sportif et nutrition</p>
+            <p>Tél : 0760933450</p>
+            <p>E-mail : diana.brizion@gmail.com</p>
+            <p>Instagram : <a href="https://www.instagram.com/dianibzn/" target="_blank">@dianibzn</a></p>
+        </div>
+    </div>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2023 Diana, Coach Sportif Personnalisé. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Script JavaScript pour la gestion des pages -->
+    <script>
+        // Fonction appelée lorsque la fenêtre est complètement chargée
+        window.onload = function() {
+            showPage('accueil');
+        };
+
+        // Fonction pour afficher une page spécifique
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.style.display = 'none';
+            });
+
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // Fonction appelée lors de la soumission du formulaire
+        function submitForm(event) {
+            event.preventDefault();
+            alert("Merci pour le fomulaire, je te recontacte très rapidement !");
+        }
+    </script>
+</body>
+</html>
