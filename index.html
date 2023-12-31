@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Méta-informations du document -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Titre de la page -->
+    <!-- Titre principal de la page en français -->
+    <title>Diana, Coach Sportif Personnalisé</title>
+
+    <!-- Styles CSS intégrés -->
+    <style>
+        /* Style général du corps de la page */
+        /* Ajoutez cette règle pour importer une police, assurez-vous de remplacer le chemin du fichier par le chemin réel où se trouve la police sur votre serveur. */
+        @font-face {
+            font-family: 'BebasNeue';
+            src: url('BebasNeue.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Roboto';
+            src: url('Roboto-Regular.ttf') format('truetype');
+        }
+        @font-face {
+            font-family: 'Poppins';
+            src: url('Poppins-Regular.ttf') format('truetype');
+        }
+
+        /* Utilisez d'une police différente pour le titre du site */
+        h1 {
+            font-family: 'BebasNeue', Arial, sans-serif; /* Utilisez Diphylleia s'il est disponible, sinon utilisez Arial ou toute autre police sans empattement. */
+            /*font-weight: bold; /* Ajoutez cette propriété pour rendre le texte en gras */
+            font-size: 2.8em;
+            margin: 0;
+            display: flex;
+            align-items: center; /* Centre verticalement le titre */
+            justify-content: center; /* Centre horizontalement le contenu de l'en-tête */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('sitediana.jpg');
+            background-size: 100% auto; /* Ajustement vertical */
+            background-position: right top;
+            font-family: 'Roboto', sans-serif;
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #fff;
+            min-height: 100vh; /* Assure que le fond d'écran couvre au moins la hauteur de l'écran */
+            background-attachment: fixed; /* Empêche le défilement de l'image d'arrière-plan */
+            text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000, 1px 1px 1px #000; /* Ajouter un contour noir au texte dans le corps de la page (sauf titre et onglets exclus après) */
+            font-size: 1.1em; /* Ajustez cette valeur pour augmenter la taille de la police dans tout le corps */
+        }
+
+        /* Style de l'en-tête */
+        header {
+            display: flex;
+            align-items: center; /* Centre verticalement le contenu de l'en-tête */
+            justify-content: center; /* Centre horizontalement le contenu de l'en-tête */
+            background-color: #424242;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+            text-shadow: none; /* Aucun contour noir pour le titre */
+            height: 40px; /* Ajustez cette valeur selon vos préférences */
+        }
+
+        /* Style de la barre de navigation */
+        nav {
+            display: flex;
+            align-items: center; /* Centre verticalement les liens de navigation */
+            justify-content: center; /* Centre horizontalement le contenu de l'en-tête */
+            background-color: #585858;
+            padding: 0.5em; /*donne la marge entre l'ecriture et le bandeau*/
+          /*  text-align: center; /* Centrer les liens */
+            height: 25px; /* Ajustez cette valeur selon vos préférences */
+        }
+
+        /* Style des liens de navigation */
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5em 3em; /* donne l'espacement entre les onglets blancs */
+            cursor: pointer;
+            display: inline-block;
+            width: auto;
+            margin: 0;
+            box-sizing: border-box;
+            text-shadow: none; /* Aucun contour noir pour les liens de navigation */
+        }
+
+        /* Style des pages */
+        .page {
+            padding: 1em;
+            display: none;
+            transition: opacity 1s ease; /* Ajout de la transition */
+          }
+
+        .centered-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center; /* Assure le centrage du texte dans le cas où il ne serait pas centré par défaut */
+            line-height: 0.05; /* interligne */
+            font-size: 1.4em; /* Augmenter la police */
+        }
+        .centered-div h3 {
+            margin-bottom: 0.7em; /* Ajout d'une marge inférieure pour séparer le titre du reste du contenu */
+        }
+
+        /* Style du pied de page */
+        footer {
+          display: flex;
+          align-items: center; /* Centre verticalement les liens de navigation */
+          justify-content: center; /* Centre horizontalement le contenu de l'en-tête */
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0; /* Ajoutez cette ligne pour occuper toute la largeur */
+            padding: 10px;
+            background-color: #585858;
+            color: #fff;
+            text-align: center;
+            padding: 0.2em;
+            white-space: nowrap; /* Empêche le texte de passer à la ligne */
+            overflow: hidden; /* Masque le texte qui ne rentre pas dans la largeur */
+            font-size: 16px; /* Taille de police en fonction de la largeur de l'écran */
+            text-shadow: 4px 4px 4px #000; /* Contour noir du texte */
+            height: 35px; /* Ajustez cette valeur selon vos préférences */
+        }
+
+
+        /* Style des drapeaux à côté du titre */
+        h1::before,
+        h1::after {
+            content: "";
+            width: 80px;
+            height: 48px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h1::before {
+            background-image: url('france-flag.jpg');
+            left: 10px;
+        }
+
+        h1::after {
+            background-image: url('colombia-flag.jpg');
+            right: 10px;
+        }
+
+        /* Styles spécifiques pour chaque langue */
+        .lang-fr {
+            display: block;
+        }
+
+        .lang-es {
+            display: none;
+        }
+
+        /* Style des drapeaux en bas à droite */
+        .flags-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            padding: 10px;
+        }
+
+        .flags-container img {
+            width: 30px;
+            height: auto;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        /* Style spécifique sur les petits écrans */
+        @media (max-width: 600px) {
+            h1 {
+                white-space: nowrap; /* Empêche le texte de se plier sur plusieurs lignes */
+                font-size: 6.8vw; /* Ajustez la valeur selon vos préférences */
+                margin: 0;
+            }
+
+          /*  .lang-es h1 {
+                font-size: 4vw; /* Ajustez la taille du titre en fonction de vos préférences
+            }   NE FONCTIONNE PAS */
+
+            h1::before, /* Masquer les drapeaux sur les petits écrans */
+            h1::after {
+                display: none;
+            }
+
+            /* Autres styles pour les petits écrans */
+            body {
+                background-image: url('sitediana2.jpg');
+                background-size: auto 100%; /* Ajuste à la hauteur sur les petits écrans */
+            }
+
+            header {
+                padding: 0.9em; /*espace intérieur d'un élément par rapport à ses bordures*/
+                height: 25px; /* Ajustez cette valeur selon vos préférences */
+            }
+
+            nav {
+                padding: 0.08em;
+              /*  text-align: center; /* Centrer les liens */
+              /*  height: 20px; /* Ajustez cette valeur selon vos préférences */
+            }
+
+            nav a {
+                display: inline-block; /* Afficher les liens en ligne - inutile? */
+                width: 48%; /* Deux liens par ligne sur les petits écrans */
+                margin: 0.5%; /* Espacement entre les liens sur les petits écrans */
+                font-size: 3vw; /* Taille de police réduite pour les petits écrans et adapté en fonction de la largeur */
+            }
+            .centered-div {
+                line-height: 0.03; /* interligne */
+                font-size: 1.4vw; /* adapter la police en fonction de la largeur d'ecran */
+            }
+
+            footer {
+                padding: 0.1em; /* Ajustez la taille du padding selon vos préférences */
+                max-width: 100%; /* Ajustez la largeur maximale selon vos préférences */
+                font-size: 0.5em; /* Taille de police réduite pour les petits écrans */
+                text-shadow: 1px 1px 1px #000; /* Contour noir du texte */
+            }
+
+            .flags-container {
+                bottom: 1px; /* Ajustez la position verticale selon vos besoins */
+                right: 1px; /* Ajustez la position horizontale selon vos besoins */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- En-tête de la page -->
+    <header>
+      <!-- Titre principal de la page en français -->
+      <h1 id="main-title">Diana, Coach Sportif Personnalisé</h1>
+    </header>
+
+    <!-- Barre de navigation -->
+    <nav>
+      <a data-tab-id="accueil" onclick="showPage('accueil')">Accueil</a>
+      <a data-tab-id="apropos" onclick="showPage('apropos')">À Propos de Moi</a>
+      <a data-tab-id="programmes" onclick="showPage('programmes')">Programmes</a>
+      <a data-tab-id="contact" onclick="showPage('contact')">Contact</a>
+    </nav>
+
+    <!-- Pages de contenu pour chaque langue -->
+    <div class="lang-fr">
+        <div id="accueil" class="page">
+            <h2>Bienvenue sur mon site de coaching sportif!</h2>
+            <p>Découvrez des programmes personnalisés pour atteindre vos objectifs de remise en forme.</p>
+        </div>
+
+        <div id="apropos" class="page">
+            <h2>À Propos de Moi</h2>
+            <p>Comme les petits drapeaux le laissent penser, je suis une colombienne vivant en France, à Evreux plus exactement.
+                <br>Et pas seulement : je suis surtout vétérinaire ! Malheureusement, je ne peux pas exercer ma profession en France pour le moment donc je me suis tourné vers ma deuxième passion : le Fitness et la Nutrition !
+                <br>Passionnée par la santé et la remise en forme, je suis là pour vous aider à atteindre vos objectifs. Avec une approche personnalisée, nous trouverons ensemble le programme qui convient le mieux à vos besoins.</p>
+        </div>
+
+        <div id="programmes" class="page">
+            <h2>Mes Programmes</h2>
+            <h3>Plans Alimentaires</h3>
+            <p>Découvrez mes plans alimentaires personnalisés pour vous aider à atteindre vos objectifs de remise en forme. Une alimentation équilibrée est essentielle pour des résultats durables.</p>
+
+            <h3>Séances de Sport Personnalisées</h3>
+            <p>Mes séances de sport personnalisées sont conçues pour répondre à vos besoins spécifiques. Que vous soyez débutant ou avancé, j'ai le programme parfait pour vous.</p>
+        </div>
+
+        <div id="contact" class="page">
+            <h2>Contactez-moi</h2>
+            <p>N'hésitez pas à me contacter par mail, Whatsapp ou Instagram.</p>
+
+            <!-- Coordonnées de contact -->
+            <!-- Div à centrer -->
+            <div class="centered-div">
+                <h3>Mes coordonnées :</h3>
+                <p>Diana Brizion</p>
+                <p>Coach sportif et nutrition</p>
+                <p>Tél : 07 60 93 34 50</p>
+                <p>E-mail : diana.brizion@gmail.com</p>
+                <p>Instagram : <a href="https://www.instagram.com/dianibzn/" target="_blank">@dianibzn</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="lang-es">
+        <div id="accueil" class="page">
+            <h2>Bienvenido a mi sitio de entrenamiento deportivo personalizado!</h2>
+            <p>Descubre programas personalizados para alcanzar tus objetivos de fitness.</p>
+        </div>
+
+        <div id="apropos" class="page">
+            <h2>Sobre Mí</h2>
+            <p>Como las pequeñas banderas sugieren, soy una colombiana que vive en Francia, en Evreux más exactamente.
+                <br>Y no solo eso: ¡soy veterinaria! Desafortunadamente, no puedo ejercer mi profesión en Francia por el momento, así que me he dedicado a mi segunda pasión: el Fitness y la Nutrición.
+                <br>Apasionada por la salud y la forma física, estoy aquí para ayudarte a alcanzar tus objetivos. Con un enfoque personalizado, encontraremos juntos el programa que mejor se adapte a tus necesidades.</p>
+        </div>
+
+        <div id="programmes" class="page">
+            <h2>Mis Programas</h2>
+            <h3>Planes Alimentarios</h3>
+            <p>Descubre mis planes alimentarios personalizados para ayudarte a alcanzar tus objetivos de forma física. Una alimentación equilibrada es esencial para obtener resultados duraderos.</p>
+
+            <h3>Sesiones de Deporte Personalizadas</h3>
+            <p>Mis sesiones de deporte personalizadas están diseñadas para satisfacer tus necesidades específicas. Ya seas principiante o avanzado, tengo el programa perfecto para ti.</p>
+        </div>
+
+        <div id="contact" class="page">
+            <h2>Contactarme</h2>
+            <p>No dudes en contactarme por correo electrónico, Whatsapp o Instagram.</p>
+
+            <!-- Coordenadas de contacto -->
+            <!-- Div centrado -->
+            <div class="centered-div">
+                <h3>Mis coordenadas:</h3>
+                <p>Diana Brizion</p>
+                <p>Entrenadora deportiva y nutrición</p>
+                <p>Tel: 0033 7 60 93 34 50</p>
+                <p>Correo electrónico: diana.brizion@gmail.com</p>
+                <p>Instagram: <a href="https://www.instagram.com/dianibzn/" target="_blank">@dianibzn</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pied de page avec les drapeaux -->
+    <footer>
+        <p>&copy; 2023 Diana, Coach Sportif Personnalisé. Tous droits réservés.</p>
+        <div class="flags-container">
+            <!-- Ajout des identifiants aux images des drapeaux -->
+            <img src="france-flag.jpg" alt="Drapeau Français" id="fr-flag" onclick="changeLanguage('fr')">
+            <img src="spain-flag.jpg" alt="Drapeau Espagnol" id="es-flag" onclick="changeLanguage('es')">
+        </div>
+    </footer>
+
+    <!-- Script JavaScript pour la gestion des pages et du changement de langue -->
+    <script>
+        let currentLanguage = 'fr';
+
+        // Ajoutez une fonction pour traduire les onglets
+        function translateTabs(language) {
+            const tabs = document.querySelectorAll('nav a');
+
+            tabs.forEach(tab => {
+                const tabId = tab.getAttribute('data-tab-id');
+                const translatedText = getTranslatedTabText(tabId, language);
+                tab.textContent = translatedText;
+            });
+        }
+
+                // Ajoutez une fonction pour obtenir le texte traduit des onglets
+        function getTranslatedTabText(tabId, language) {
+            if (language === 'fr') {
+                switch (tabId) {
+                    case 'accueil':
+                        return 'Accueil';
+                    case 'apropos':
+                        return 'À Propos de Moi';
+                    case 'programmes':
+                        return 'Programmes';
+                    case 'contact':
+                        return 'Contact';
+                    default:
+                        return tabId;
+                }
+            } else if (language === 'es') {
+                switch (tabId) {
+                    case 'accueil':
+                        return 'Inicio';
+                    case 'apropos':
+                        return 'Sobre Mí';
+                    case 'programmes':
+                        return 'Programas';
+                    case 'contact':
+                        return 'Contacto';
+                    default:
+                        return tabId;
+                }
+            }
+            // Ajoutez d'autres langues au besoin
+            return tabId;
+        }
+
+        function changeLanguage(language) {
+            if (language !== currentLanguage) {
+                // Masquer le contenu de la langue actuelle
+                document.querySelector('.lang-' + currentLanguage).style.display = 'none';
+
+                // Afficher le contenu de la nouvelle langue
+                document.querySelector('.lang-' + language).style.display = 'block';
+
+                // Mettez à jour le contenu du titre en fonction de la langue
+                document.getElementById('main-title').textContent = getTranslatedTitle(language);
+
+                // Mettez à jour le texte des onglets en fonction de la langue
+                translateTabs(language);
+
+                // Mettez à jour la langue actuelle
+                currentLanguage = language;
+            }
+        }
+
+        // Fonction pour obtenir le titre traduit en fonction de la langue
+        function getTranslatedTitle(language) {
+            if (language === 'fr') {
+                return 'Diana, Coach Sportif Personnalisé';
+            } else if (language === 'es') {
+                return 'Diana, Entrenadora Personal de Fitness';
+            }
+            // Ajoutez d'autres langues au besoin
+            return 'Diana, Coach Sportif Personnalisé';
+        }
+
+        // Fonction appelée lorsque la fenêtre est complètement chargée
+        window.onload = function() {
+            showPage('accueil');
+            translateTabs(currentLanguage); // Traduire les onglets initiaux
+        };
+
+        // Fonction pour afficher une page spécifique
+        function showPage(pageId) {
+          // Masquer toutes les pages avec une transition de fondu
+          const pages = document.querySelectorAll('.page');
+          pages.forEach(page => {
+              page.style.opacity = 0;
+              page.style.display = 'none';
+          });
+
+          // Afficher la page spécifique avec une transition de fondu
+          const selectedPage = document.querySelector('.lang-' + currentLanguage + ' #' + pageId);
+          selectedPage.style.display = 'block';
+          setTimeout(() => {
+              selectedPage.style.opacity = 1;
+          }, 10); // Retard pour garantir que la transition fonctionne correctement
+        }
+
+        // Ajoutez un gestionnaire d'événements au drapeau français
+        document.getElementById('fr-flag').addEventListener('click', function() {
+            changeLanguage('fr');
+            showPage('accueil'); // Affiche la page d'accueil après avoir changé la langue
+        });
+
+        // Ajoutez un gestionnaire d'événements au drapeau espagnol
+        document.getElementById('es-flag').addEventListener('click', function() {
+            changeLanguage('es');
+            showPage('accueil'); // Affiche la page d'accueil après avoir changé la langue
+        });
+
+    </script>
+</body>
+</html>
